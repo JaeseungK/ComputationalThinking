@@ -1,0 +1,54 @@
+import random
+
+rcp = ["가위", "바위", "보"]
+rate = {
+    'win': 0,
+    'lose': 0,
+    'draw': 0,
+}
+
+for _ in range(5):
+    pc_pick = random.choice(rcp)
+    my_pick = input("가위, 바위, 보 중 하나를 입력하세요: ")
+
+    if my_pick not in ('가위', '바위', '보'):
+        print("잘못된 입력입니다! 패배로 간주합니다.")
+        rate['lose'] += 1
+        continue
+
+    print("컴퓨터가 낸 것:", pc_pick)
+
+    if pc_pick == '가위':
+        if my_pick == '가위':
+            print("비겼습니다.")
+            rate['draw'] += 1
+        elif my_pick == '바위':
+            print("이겼습니다.")
+            rate['win'] += 1
+        else:
+            print("졌습니다.")
+            rate['lose'] += 1
+
+    elif pc_pick == '바위':
+        if my_pick == '바위':
+            print("비겼습니다.")
+            rate['draw'] += 1
+        elif my_pick == '보':
+            print("이겼습니다.")
+            rate['win'] += 1
+        else:
+            print("졌습니다.")
+            rate['lose'] += 1
+
+    else:
+        if my_pick == '보':
+            print("비겼습니다.")
+            rate['draw'] += 1
+        elif my_pick == '가위':
+            print("이겼습니다.")
+            rate['win'] += 1
+        else:
+            print("졌습니다.")
+            rate['lose'] += 1
+
+print('이긴 횟수:', rate['win'], ' 진 횟수:', rate['lose'], ' 비긴 횟수:', rate['draw'])

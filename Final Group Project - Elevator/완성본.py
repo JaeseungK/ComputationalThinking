@@ -69,17 +69,11 @@ def turnred():
 
         t_list.append(t)
 
-    print('걸리는 시간 =', t_list)
-
-    for i in range(3):
-        if t_list[i] == min(t_list):
-            target_ev = 'EV' + str(i + 1)
-
-    print('가장 빠른 엘리베이터 =', target_ev)
-
     for i in range(3):
         if t_list[i] == min(t_list):
             target_evnum = i
+
+    print('가장 빠른 엘리베이터 = EV', target_evnum + 1, sep='')
 
     floor_list[target_evnum].configure(fg='red')
     text_list[target_evnum].configure(fg='red')
